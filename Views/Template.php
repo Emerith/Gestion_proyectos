@@ -28,9 +28,10 @@ class Template
 
 
         <nav id="menusito">
-        <?php if(!isset($_SESSION["username"]))
-    {?>
+
+
             <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
+            <a class="navbar-brand" href="<?php echo URL?>">Proyecto</a>
                 <div class="container">
                     <a class="navbar-brand" href="#"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,10 +48,13 @@ class Template
                             <li class="nav-item">
                                 <input class="form-control" type="search" placeholder="Buscar">
                             </li>
+                            <li>
+                                <a href="<?php echo URL?>login" class="nav-link">Login</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
-                <?php }?>
+                <?php ?>
             </nav>
 
 
