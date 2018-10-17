@@ -9,6 +9,8 @@
 namespace AppData\Controller;
 
 
+use http\Url;
+
 class FormatoController
 {
     private $persona;
@@ -23,16 +25,22 @@ class FormatoController
 
     }
     public function crear(){
-        if($_POST)
+        if(isset($_POST))
         {
-            $this->persona->set('Nombre',$_POST["Nombre"]);
-            $this->persona->set('Apellido_patern',$_POST["Apellido_patern"]);
-            $this->persona->set('Apellido_matern',$_POST["Apellido_patern"]);
+            $this->persona->set('nombre',$_POST["nombre"]);
+            $this->persona->set('apellido_patern',$_POST["apellido_patern"]);
+            $this->persona->set('apellido_matern',$_POST["apellido_matern"]);
             $this->persona->set('email',$_POST["email"]);
             $this->persona->set('pass',$_POST["pass"]);
-
+            $datos=$this->
+            print_r($this->persona);
             $this->persona->add();
+
+
+
         }
     }
-
-}
+}?>
+<script type="text/javascript">
+    window.location.href=<?php echo URL?>
+</script>
