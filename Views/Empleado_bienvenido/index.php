@@ -1,38 +1,27 @@
-<div class="card-panel">
-    <h4 align="center"></h4>
-    <div class="divider"></div>
-    <h1 class="center">Bienvenido Empleado</h1>
+<!-- Page Content -->
+<div class="container">
 
-
+    <!-- Introduction Row -->
+    <h1 class="my-4">Bienvenido
+    </h1>
     <div class="row">
-        <div class="col s6 m5 l1">
-            <div class="card  orange accent-3">
-                <div class="padding-4">
-                    <div class="col s7 m7">
-                        <a class="btn-floating btn-large disabled #00bfa5">
-                            <i class="mdi-action-verified-user prefix icon-clock orange"></i>
-                        </a>
-                        <a href="<?php echo URL?>Entrada " class="center white-text">Entrada</a>
-                    </div>
-                </div>
-            </div>
+        <div class="col-lg-12">
+            <h4 class="my-4">Control de Eventos</h4>
         </div>
-        <div class="col s6 m5 l1">
-            <div class="card orange accent-3">
-                <div class="padding-4">
-                    <div class="col s7 m7">
-                        <a class= "btn-floating btn-large disabled #00bfa5">
-                            <i class="mdi-action-verified-user prefix icon-clock orange"></i>
-                        </a>
-                        <a href="<?php echo URL?>Salida" class="center  white-text">Salida</a>
-                    </div>
-
-                </div>
-            </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+            <h3>Cívicos </h3>
         </div>
-
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+            <h3>Culturales</h3>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+            <h3>Deportivos</h3>
+        </div>
     </div>
 
-
 </div>
+<!-- /.container -->
 

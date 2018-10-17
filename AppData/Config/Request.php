@@ -5,8 +5,12 @@
  * Date: 10/05/2018
  * Time: 12:56 PM
  */
+
 namespace AppData\Config;
+
+
 use AppData\Model\login;
+
 class Request
 {
     private $controlador;
@@ -36,25 +40,56 @@ class Request
                 $this->metodo = "index";
             }
         }
-        else
-            if (isset($_GET['url'])?stristr($_GET['url'],'login'):false)
-            {
-                $this->controlador="login";
-                if(isset($_POST["email"]))
-                    $this->metodo = "verify";
-                else
-                    $this->metodo = "index";
-            }
-            else if (isset($_GET['url'])?stristr($_GET['url'],'ReservacionesCliente'):false)
-            {
-                $this->controlador="ReservacionesCliente";
-                $this->metodo=stristr($_GET['url'],'consulta')?"consulta":"index";
-            }
+      else
+          if (isset($_GET['url'])?stristr($_GET['url'],'login'):false)
+        {
+            $this->controlador="login";
+
+
+            if(isset($_POST["email"]))
+
+                $this->metodo = "verify";
+
             else
-            {
-                $this->controlador="inicio";
                 $this->metodo = "index";
-            }
+        }
+        else if (isset($_GET['url'])?stristr($_GET['url'],'Civicos'):false)
+        {
+            $this->controlador="Civicos";
+            $this->metodo=stristr($_GET['url'],'consulta')?"consulta":"index";
+        }
+
+        else if (isset($_GET['url'])?stristr($_GET['url'],'Deportivos'):false)
+        {
+            $this->controlador="Deportivos";
+            $this->metodo=stristr($_GET['url'],'consulta')?"consulta":"index";
+        }
+
+        else if (isset($_GET['url'])?stristr($_GET['url'],'Culturales'):false)
+        {
+            $this->controlador="Culturales";
+            $this->metodo=stristr($_GET['url'],'consulta')?"consulta":"index";
+        }
+
+        else if (isset($_GET['url'])?stristr($_GET['url'],'Proximamente'):false)
+        {
+            $this->controlador="Proximamente";
+            $this->metodo=stristr($_GET['url'],'consulta')?"consulta":"index";
+        }
+
+        else if (isset($_GET['url'])?stristr($_GET['url'],'Formato'):false)
+        {
+            $this->controlador="Formato";
+            $this->metodo=stristr($_GET['url'],'consulta')?"consulta":"index";
+        }
+
+        else
+        {
+            $this->controlador="inicio";
+            $this->metodo = "index";
+
+        }
+
     }
     public function getControlador()
     {

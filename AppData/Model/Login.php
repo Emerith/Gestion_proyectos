@@ -11,7 +11,7 @@ namespace AppData\Model;
 
 class Login
 {
-    private $tabla="usuarios";
+    private $tabla="persona";
     private $email, $pass;
     public function __construct()
     {
@@ -31,7 +31,7 @@ class Login
     public function verify()
     {
         $sql="SELECT * FROM {$this->tabla} where email='{$this->email}' and pass='{$this->pass}'";
-//        print_r($sql);
+        //print_r($sql);
         $dato=$this->conexion->QueryResultado($sql);
         return $dato;
     }
