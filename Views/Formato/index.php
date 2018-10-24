@@ -1,34 +1,29 @@
-<form class="needs-validation">
-    <div class="form-row">
-        <div class="col-md-4 mb-3">
-            <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre">
-        </div>
+<div class="registro">
+    <form id="contact" method="post"  href="<?php echo URL?>Formato/crear/">
+        <h3 align="center">Registro</h3>
+        <fieldset>
+            <input placeholder="Nombre" type="text" name='Nombre' id="Nombre" >
+        </fieldset>
 
-        <div class="col-md-4 mb-3">
-            <label for="ap_p">Apellido Paterno</label>
-            <input type="text" class="form-control" id="Apellido_patern" placeholder="Apellido Paterno">
-        </div>
+        <fieldset>
+        <input placeholder="Apellido paterno" type="text" name='Apellido_patern' id="Apellido_patern">
+        </fieldset>
 
-        <div class="col-md-4 mb-3">
-            <label for="ap_p">Apellido Paterno</label>
-            <input type="text" class="form-control" id="Apellido_matern" placeholder="Apellido Materno">
-        </div>
-    </div>
+        <fieldset>
+            <input placeholder="Apellido materno" type="text" name='Apellido_matern' id="Apellido_matern">
+        </fieldset>
 
-    <div class="form-row">
+        <fieldset>
+            <input placeholder="Email" type="email" name='email' id="email">
+        </fieldset>
 
-        <div class="col-md-4 mb-3">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Email">
-        </div>
+        <fieldset>
+            <input placeholder="Contraseña" type="password" name='pass' id="pass">
+        </fieldset>
+        <fieldset >
+            <button  type="submit" id="b1">Enviar</button>
+        </fieldset>
 
-        <div class="col-md-4 mb-3">
-            <label for="pass">Contraseña</label>
-            <input type="password" class="form-control" id="pass" placeholder="Contraseña">
-        </div>
-    </div>
+    </form>
 
-    <button class="btn btn-primary" type="submit" >Registrar</button>
-
-</form>
+</div>
