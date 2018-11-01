@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: JAZMIN
- * Date: 11/05/2018
- * Time: 07:32 AM
- */
 
 namespace AppData\Config;
 
@@ -26,11 +20,10 @@ class Enrutador
             if (!isset($argumento)) {
                 $datos = call_user_func(array($controlador, $metodo));
             } else {
-                if(is_callable(array($controlador,$metodo)))
-                    $datos = call_user_func(array($controlador, $metodo), $argumento);
+                $datos = call_user_func(array($controlador, $metodo), $argumento);
             }
         }
-        $ruta = ROOT . "Views" . DS . $request->getControlador() . DS . $request->getMetodo() . ".php";
+
         if ($request->getMetodo() != "modificar") {
             $ruta = ROOT . "Views" . DS . $request->getControlador() . DS . $request->getMetodo() . ".php";
 
