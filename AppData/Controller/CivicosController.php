@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: Mutsorini
- * Date: 16/10/2018
- * Time: 07:03 PM
+ * Date: 02/11/2018
+ * Time: 10:09 PM
  */
 
 namespace AppData\Controller;
@@ -11,58 +11,62 @@ namespace AppData\Controller;
 
 class CivicosController
 {
-    private $prueba;
+    private $eventos;
     public function __construct()
     {
-
-        $this->prueba=new \AppData\Model\Civicos();
-
+        $this->eventos=new \AppData\Model\Civicos();
     }
-
     public function index()
     {
-
-        $datos1=$this->prueba->getAll();
+        $datos1=$this->eventos->getAll();
         $datos[0]=$datos1;
-
         return $datos;
     }
     public function crear()
     {
         if($_POST)
         {
-            $this->prueba->set('Nombre',$_POST["Nombre"]);
-            $this->prueba->add();
-            $datos1=$this->prueba->getAll();
+            $this->eventos->set('Nombre',$_POST["Nombre"]);
+            $this->eventos->set('descripcion',$_POST["descripcion"]);
+            $this->eventos->set('lugar',$_POST["lugar"]);
+            $this->eventos->set('fecha',$_POST["fecha"]);
+            $this->eventos->set('Fecha_fin',$_POST["Fecha_fin"]);
+            $this->eventos->set('Horario',$_POST["Horario"]);
+
+            $this->eventos->add();
+            $datos1=$this->eventos->getAll();
             $datos[0]=$datos1;
             return $datos;
         }
-
     }
     public function eliminar($id)
     {
-        $this->prueba->delete($id[0]);
-        $datos1=$this->prueba->getAll();
+        $this->eventos->delete($id[0]);
+        $datos1=$this->eventos->getAll();
         $datos[0]=$datos1;
         return $datos;
     }
     public function modificar($id)
     {
-        $datos=$this->prueba->getOne($id[0]);
+        $datos=$this->eventos->getOne($id[0]);
         return $datos;
     }
     public function actualizar($id)
     {
         if($_POST)
         {
-            $this->prueba->set("id_prueba",$id[0]);
-            $this->prueba->set('Nombre',$_POST["Nombre"]);
-            $this->prueba->update();
-            $datos1=$this->prueba->getAll();
+            $this->eventos->set("id_evento",$id[0]);
+            $this->eventos->set('Nombre',$_POST["Nombre"]);
+            $this->eventos->set('descripcion',$_POST["descripcion"]);
+            $this->eventos->set('lugar',$_POST["lugar"]);
+            $this->eventos->set('fecha',$_POST["fecha"]);
+            $this->eventos->set('Fecha_fin',$_POST["Fecha_fin"]);
+            $this->eventos->set('Horario',$_POST["Horario"]);
+
+            $this->eventos->update();
+            $datos1=$this->eventos->getAll();
             $datos[0]=$datos1;
             return $datos;
         }
     }
-
-
 }

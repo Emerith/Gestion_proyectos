@@ -4,7 +4,7 @@
 namespace AppData\Model;
 
 
-class Proximamente
+class InicioClient
 {
 
     private $tabla = "eventos";
@@ -27,17 +27,18 @@ class Proximamente
 
     function getAll()
     {
-        $sql = "SELECT Nombre,descripcion,lugar,date_format(fecha,'%d-%m-%Y')as fecha,date_format(Fecha_fin,'%d-%m-%Y')as Fecha_fin,Horario 
-                from eventos where fecha>sysdate() ";
+        $sql = "select Nombre, descripcion, lugar, 				
+                                date_format(fecha,'%d-%m-%Y')AS fecha,date_format(Fecha_fin,'%d-%m-%Y') As Fecha_fin, Horario
+                                FROM eventos ORDER BY Nombre";
         $datos = $this->conexion->QueryResultado($sql);
         return $datos;
     }
 
     function getAllInicio()
     {
-        $sql = "SELECT Nombre, descripcion, lugar, 				
-                                date_format(fecha,'%d-%m-%Y') as fecha, date_format(Fecha_fin,'%d-%m-%Y')as Fecha_fin, Horario
-                                FROM eventos where fecha > sysdate() ORDER BY fecha";
+        $sql = "SELECT eventos.Nombre, eventos.descripcion, eventos.lugar, 				
+                                eventos.fecha, eventos.Fecha_fin,eventos.Horario
+                                FROM eventos ORDER BY Nombre";
         $datos = $this->conexion->QueryResultado($sql);
         return $datos;
     }

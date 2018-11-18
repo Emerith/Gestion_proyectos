@@ -1,17 +1,22 @@
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: Mutsorini
+ * Date: 06/11/2018
+ * Time: 10:25 PM
+ */
 
 namespace AppData\Controller;
 
 
-class ProximamenteController
+class DeportivosClientController
 {
 
     private $eventos;
 
     public function __construct()
     {
-        $this->eventos= new \AppData\Model\Proximamente();
+        $this->eventos= new \AppData\Model\DeportivosClient();
     }
 
     public function index()
