@@ -35,7 +35,7 @@ class Civicos
     function add()
     {
         $sql = "insert into {$this->tabla} values('0','{$this->Nombre}','{$this->descripcion}','230','{$this->lugar}',
-        '{$this->fecha}','{$this->Fecha_fin}','{$this->Horario}')";
+        '{$this->fecha}','{$this->Fecha_fin}','{$this->Horario}'),date_format(sysdate())";
         $this->conexion->QuerySimple($sql);
     }
 

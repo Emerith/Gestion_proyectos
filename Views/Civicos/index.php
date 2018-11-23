@@ -18,6 +18,7 @@
                     <th scope="col">Fecha inicio</th>
                     <th scope="col">Fecha fin</th>
                     <th scope="col">Horario</th>
+                    <th scope="col">Registro</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
