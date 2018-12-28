@@ -1,12 +1,7 @@
 <?php
-
-
 namespace AppData\Model;
-
-
-class InicioClient
+class inicio
 {
-
     private $tabla = "eventos";
 
 
@@ -28,20 +23,10 @@ class InicioClient
     function getAll()
     {
         $sql = "select Nombre, descripcion, lugar, 				
-                                date_format(fecha,'%d-%m-%Y')AS fecha,date_format(Fecha_fin,'%d-%m-%Y') As Fecha_fin, Horario
+                                date_format(fecha,'%d-%m-%Y')AS fecha,date_format(Fecha_fin,'%d-%m-%Y') As Fecha_fin, Horario, img
                                 FROM eventos ORDER BY Nombre";
         $datos = $this->conexion->QueryResultado($sql);
         return $datos;
     }
-
-    function getAllInicio()
-    {
-        $sql = "SELECT eventos.Nombre, eventos.descripcion, eventos.lugar, 				
-                                eventos.fecha, eventos.Fecha_fin,eventos.Horario
-                                FROM eventos ORDER BY Nombre";
-        $datos = $this->conexion->QueryResultado($sql);
-        return $datos;
-    }
-
 
 }

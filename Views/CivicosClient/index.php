@@ -1,20 +1,37 @@
+<br>
+
 <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <h1>Cívicos</h1>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
 
-    <!-- Page Heading -->
-    <h1 class="my-4">Cívicos
-    </h1>
+<br>
 
-
+<div class="container" >
     <?php
     $datos=$datos[0];
     $url=URL;
     while($row=mysqli_fetch_array($datos)) { ?>
         <div class="row">
             <div class="col-md-7">
-                <a href="#">
-                    <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
-                </a>
-
+                <a><img class="img-responsive center-block" width="640px" height="270px" src='data:image/jpg; base64, <?php echo base64_encode($row['img']) ?>'></a>
             </div>
 
             <div class="col-md-5">
@@ -23,11 +40,10 @@
                 <p>Lugar: <?php echo $row['lugar']?></p>
                 <p>De: <?php echo $row['fecha']?></p>
                 <p>A: <?php echo $row['Fecha_fin']?></p>
-                <p>Horario: <?php echo $row['Horario']?></p>
+                <p>Hora: <?php echo $row['Horario']?></p>
             </div>
         </div>
         <br>
     <?php } ?>
-
-
 </div>
+
