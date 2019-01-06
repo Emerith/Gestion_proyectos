@@ -40,4 +40,32 @@ class Empleado_Bienvenido
         return $dato;
     }
 
+    function cont_civ()
+    {
+        $sql="SELECT cuenta FROM cont_civ";
+        $dato = $this->conexion->QueryResultado($sql);
+        return $dato;
+    }
+
+    function cont_dep()
+    {
+        $sql="SELECT cuenta FROM cont_dep";
+        $dato = $this->conexion->QueryResultado($sql);
+        return $dato;
+    }
+
+    function cont_cult()
+    {
+        $sql="SELECT cuenta FROM cont_cult";
+        $dato = $this->conexion->QueryResultado($sql);
+        return $dato;
+    }
+
+    function conteo_total()
+    {
+        $sql="SELECT SUM(cont_dep.cuenta+cont_cult.cuenta+cont_civ.cuenta) AS sumatot FROM cont_dep, cont_cult, cont_civ";
+        $dato=$this->conexion->QueryResultado($sql);
+        return $dato;
+    }
+
 }

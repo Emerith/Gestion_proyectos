@@ -2,7 +2,9 @@
     <h2>Bienvenido </h2>
 </div>
 <div class="row justify-content-md-center">
-    <h3>	<?php echo $_SESSION["email"] ?> </h3>
+    <h3>	<?php echo $_SESSION["email"];
+        $fechass="Conteo Dia: ".date("d")."-".date("m")."-".date("Y");
+        ?> </h3>
 
 </div>
 <br>
@@ -13,7 +15,16 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Página principal</h5>
-                <p class="card-text">contador</p>
+                <p class="card-text"><?php echo $fechass;?></p>
+                <br>
+                <?php
+                    $dato=$datos[3];
+                    while ($row=mysqli_fetch_array($dato)){
+                     echo "<p> {$row[0]} </p>";
+                    }
+                ?>
+                <br>
+                <a href="<?php echo URL?>"  target="_blank">Mas Fechas</a>
             </div>
         </div>
     </div>
@@ -21,7 +32,16 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Eventos Culturales</h5>
-                <p class="card-text">contador</p>
+                <p class="card-text"><?php echo $fechass;?></p>
+                <br>
+                <?php
+                $dato=$datos[1];
+                while ($row=mysqli_fetch_array($dato)){
+                    echo "<p> {$row[0]} </p>";
+                }
+                ?>
+                <br>
+                <a href="<?php echo URL?>"  target="_blank">Mas Fechas</a>
             </div>
         </div>
     </div>
@@ -29,7 +49,16 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Eventos Cívicos</h5>
-                <p class="card-text">contador</p>
+                <p class="card-text"><?php echo $fechass;?></p>
+                <br>
+                <?php
+                $dato=$datos[0];
+                while ($row=mysqli_fetch_array($dato)){
+                    echo "<p> {$row[0]} </p>";
+                }
+                ?>
+                <br>
+                <a href="<?php echo URL?>"  target="_blank" >Mas Fechas</a>
             </div>
         </div>
     </div>
@@ -37,7 +66,16 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Eventos Deportivos</h5>
-                <p class="card-text">contador</p>
+                <p class="card-text"><?php echo $fechass;?></p>
+                <br>
+                <?php
+                $dato=$datos[2];
+                while ($row=mysqli_fetch_array($dato)){
+                    echo "<p> {$row[0]} </p>";
+                }
+                ?>
+                <br>
+                <a href="<?php echo URL?>" target="_blank">Mas Fechas</a>
             </div>
         </div>
     </div>

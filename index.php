@@ -3,16 +3,15 @@
 
 define('DS',DIRECTORY_SEPARATOR);
 define('ROOT',realpath(dirname(__FILE__)).DS);
-define('URL',"http://localhost:82/Gestion_proyectos/");
+define('URL',"http://localhost/Gestion_proyectos/Gestion_proyectos/");
 
 
 
-<<<<<<< HEAD
+date_default_timezone_set('America/Mexico_City');
+
 require_once ("AppData/Config/Autoload.php");
 \AppData\Config\Autoload::run();
-=======
-    define('URL',"http://localhost/Gestion_proyectos/");
->>>>>>> f7eba843f8d0c5ec7d008d5cfe836900c8fbc8ef
+
 
 if(!isset($_SERVER["HTTP_X_REQUESTED_WITH"])&&(isset($_GET['url'])?!((stristr($_GET['url'],'print'))&&(stristr($_GET['url'],'pdf'))):true))
     Views\Template::header();

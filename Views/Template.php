@@ -53,6 +53,9 @@ class Template
                         </li>
                     </ul>
                 </div>
+                <div>
+                    <div id="sfc8zferfam1j6nq2prrep8xt4umhyukd4n"></div><script type="text/javascript" src="https://counter5.wheredoyoucomefrom.ovh/private/counter.js?c=8zferfam1j6nq2prrep8xt4umhyukd4n&down=async" async></script><br><noscript><a href="https://www.contadorvisitasgratis.com" title="contador de visitas com"><img src="https://counter5.wheredoyoucomefrom.ovh/private/contadorvisitasgratis.php?c=8zferfam1j6nq2prrep8xt4umhyukd4n" border="0" title="contador de visitas com" alt="contador de visitas com"></a></noscript>
+                </div>
             </div>
         </nav>
 
@@ -124,6 +127,8 @@ class Template
                 <p class="m-0 text-left text-white">Teléfono: 01 726 266 50 77</p>
                 <p class="m-0 text-left text-white">E-mail: valledebravo@pueblomagico.com</p>
             </div>
+
+
         </footer>
         </body>
         </html>
