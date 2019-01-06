@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-11-2018 a las 18:19:51
--- Versión del servidor: 10.1.31-MariaDB
--- Versión de PHP: 7.2.4
+-- Tiempo de generación: 06-01-2019 a las 14:42:46
+-- Versión del servidor: 10.1.30-MariaDB
+-- Versión de PHP: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -45,6 +45,75 @@ INSERT INTO `categoria` (`id_categoria`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `contador_total`
+--
+
+CREATE TABLE `contador_total` (
+  `id_cont_total` int(11) NOT NULL,
+  `fecha` date DEFAULT NULL,
+  `conteo_dia` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cont_civ`
+--
+
+CREATE TABLE `cont_civ` (
+  `id_cont_civ` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `cuenta` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cont_civ`
+--
+
+INSERT INTO `cont_civ` (`id_cont_civ`, `fecha`, `cuenta`) VALUES
+(10, '2019-01-06', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cont_cult`
+--
+
+CREATE TABLE `cont_cult` (
+  `id_cont_cult` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `cuenta` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cont_cult`
+--
+
+INSERT INTO `cont_cult` (`id_cont_cult`, `fecha`, `cuenta`) VALUES
+(1, '2019-01-06', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cont_dep`
+--
+
+CREATE TABLE `cont_dep` (
+  `id_cont_dep` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `cuenta` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cont_dep`
+--
+
+INSERT INTO `cont_dep` (`id_cont_dep`, `fecha`, `cuenta`) VALUES
+(1, '2019-01-06', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `eventos`
 --
 
@@ -56,19 +125,20 @@ CREATE TABLE `eventos` (
   `lugar` varchar(20) NOT NULL,
   `fecha` date NOT NULL,
   `Fecha_fin` date NOT NULL,
-  `Horario` time NOT NULL
+  `Horario` time NOT NULL,
+  `img` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `eventos`
 --
 
-INSERT INTO `eventos` (`id_evento`, `Nombre`, `descripcion`, `id_categoria`, `lugar`, `fecha`, `Fecha_fin`, `Horario`) VALUES
-(2, 'Regata de la revolución', 'Carrera de veleros', 232, 'Club de Vela la Peña', '2018-11-17', '2018-11-17', '10:00:00'),
-(3, 'Regata ProValle', 'Carrera de veleros', 232, 'Club de Vela Santa M', '2018-12-01', '2018-12-01', '10:00:00'),
-(6, 'XV Festival de las almas', 'Festival', 231, 'Valle de Bravo', '2018-11-09', '2018-12-06', '10:30:00'),
-(7, 'Honores a la bandera', 'Conmemoración de la revolución', 230, 'Valle de Bravo', '2018-12-05', '2018-12-05', '12:00:00'),
-(8, 'Copa de la Champage', 'Campeonato de velero', 232, 'Club Náutico Avándar', '2018-11-01', '2018-11-02', '10:30:00');
+INSERT INTO `eventos` (`id_evento`, `Nombre`, `descripcion`, `id_categoria`, `lugar`, `fecha`, `Fecha_fin`, `Horario`, `img`) VALUES
+(2, 'Regata de la revolución', 'Carrera de veleros', 232, 'Club de Vela la Peña', '2018-11-17', '2018-11-17', '10:00:00', ''),
+(3, 'Regata ProValle', 'Carrera de veleros', 232, 'Club de Vela Santa M', '2018-12-01', '2018-12-01', '10:00:00', ''),
+(6, 'XV Festival de las almas', 'Festival', 231, 'Valle de Bravo', '2018-11-09', '2018-12-06', '10:30:00', ''),
+(7, 'Honores a la bandera', 'Conmemoración de la revolución', 230, 'Valle de Bravo', '2018-12-05', '2018-12-05', '12:00:00', ''),
+(8, 'Copa de la Champage', 'Campeonato de velero', 232, 'Club Náutico Avándar', '2018-11-01', '2018-11-02', '10:30:00', '');
 
 -- --------------------------------------------------------
 
@@ -148,6 +218,30 @@ ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id_categoria`);
 
 --
+-- Indices de la tabla `contador_total`
+--
+ALTER TABLE `contador_total`
+  ADD PRIMARY KEY (`id_cont_total`);
+
+--
+-- Indices de la tabla `cont_civ`
+--
+ALTER TABLE `cont_civ`
+  ADD PRIMARY KEY (`id_cont_civ`);
+
+--
+-- Indices de la tabla `cont_cult`
+--
+ALTER TABLE `cont_cult`
+  ADD PRIMARY KEY (`id_cont_cult`);
+
+--
+-- Indices de la tabla `cont_dep`
+--
+ALTER TABLE `cont_dep`
+  ADD PRIMARY KEY (`id_cont_dep`);
+
+--
 -- Indices de la tabla `eventos`
 --
 ALTER TABLE `eventos`
@@ -174,6 +268,30 @@ ALTER TABLE `usuarios`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `contador_total`
+--
+ALTER TABLE `contador_total`
+  MODIFY `id_cont_total` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `cont_civ`
+--
+ALTER TABLE `cont_civ`
+  MODIFY `id_cont_civ` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `cont_cult`
+--
+ALTER TABLE `cont_cult`
+  MODIFY `id_cont_cult` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `cont_dep`
+--
+ALTER TABLE `cont_dep`
+  MODIFY `id_cont_dep` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `eventos`
