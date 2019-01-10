@@ -7,7 +7,7 @@ namespace AppData\Model;
 class CulturalesClient
 {
     private $tabla = "eventos";
-    private $conteo= "cont_cult";
+    private $conteo= "contadores";
     private $fecha = "fecha";
     private $id="id_cont_cult";
 
@@ -40,20 +40,22 @@ class CulturalesClient
         $fechass=date("Y")."-".date("m")."-".date("d");
 //        echo $fechass."<br>";
 
-        $sql = "SELECT COUNT(id_cont_cult) AS sumita FROM `cont_cult` WHERE fecha='{$fechass}'";
+//        $sql = "SELECT COUNT(id_cont_cult) AS sumita FROM `cont_cult` WHERE fecha='{$fechass}'";
+        $sql="SELECT COUNT(cuenta) AS sumita FROM `contadores` WHERE fecha='{$fechass}' AND id_tipo_contador=231";
         $dato=$this->conexion->QueryResultado($sql);
         return $dato;
     }
 
     public function insertauno()
     {
-        $sql="INSERT INTO {$this->conteo} VALUES (0,CURDATE(),1)";
+//        $sql="INSERT INTO {$this->conteo} VALUES (0,CURDATE(),1)";
+        $sql="INSERT INTO {$this->conteo} VALUES (0,1,231,CURDATE())";
         $this->conexion->QuerySimple($sql);
     }
 
     public function suma()
     {
-        $sql="UPDATE {$this->conteo} SET cuenta=cuenta+1";
+        $sql="UPDATE {$this->conteo} SET cuenta=cuenta+1 WHERE id_tipo_contador=231";
         $this->conexion->QuerySimple($sql);
     }
 }

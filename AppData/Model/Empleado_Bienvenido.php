@@ -40,32 +40,54 @@ class Empleado_Bienvenido
         return $dato;
     }
 
+    function conteo_total()
+    {
+        $sql="SELECT SUM(cuenta) FROM CONTADORES WHERE fecha=curdate()";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
+    }
+
+
+
     function cont_civ()
     {
-        $sql="SELECT cuenta FROM cont_civ";
-        $dato = $this->conexion->QueryResultado($sql);
-        return $dato;
+        $sql="SELECT SUM(cuenta) FROM CONTADORES WHERE id_tipo_contador=230 AND fecha=curdate()";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
     }
 
     function cont_dep()
     {
-        $sql="SELECT cuenta FROM cont_dep";
-        $dato = $this->conexion->QueryResultado($sql);
-        return $dato;
+        $sql="SELECT SUM(cuenta) FROM CONTADORES WHERE id_tipo_contador=232 AND fecha=curdate()";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
     }
 
     function cont_cult()
     {
-        $sql="SELECT cuenta FROM cont_cult";
-        $dato = $this->conexion->QueryResultado($sql);
-        return $dato;
+        $sql="SELECT SUM(cuenta) FROM CONTADORES WHERE id_tipo_contador=231 AND fecha=curdate()";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
     }
 
-    function conteo_total()
+    function cont_tot_civ()
     {
-        $sql="SELECT SUM(cont_dep.cuenta+cont_cult.cuenta+cont_civ.cuenta) AS sumatot FROM cont_dep, cont_cult, cont_civ";
-        $dato=$this->conexion->QueryResultado($sql);
-        return $dato;
+        $sql="SELECT contadores.cuenta, categoria.descripcion, contadores.fecha FROM contadores, categoria WHERE id_tipo_contador=230 AND categoria.id_categoria=contadores.id_tipo_contador";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
     }
 
+    function cont_tot_dep()
+    {
+        $sql="SELECT contadores.cuenta, categoria.descripcion, contadores.fecha FROM contadores, categoria WHERE id_tipo_contador=232 AND categoria.id_categoria=contadores.id_tipo_contador";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
+    }
+
+    function cont_tot_cult()
+    {
+        $sql="SELECT contadores.cuenta, categoria.descripcion, contadores.fecha FROM contadores, categoria WHERE id_tipo_contador=231 AND categoria.id_categoria=contadores.id_tipo_contador";
+        $datos=$this->conexion->QueryResultado($sql);
+        return $datos;
+    }
 }

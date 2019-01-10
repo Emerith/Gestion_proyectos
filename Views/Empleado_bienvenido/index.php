@@ -18,13 +18,14 @@
                 <p class="card-text"><?php echo $fechass;?></p>
                 <br>
                 <?php
-                    $dato=$datos[3];
-                    while ($row=mysqli_fetch_array($dato)){
-                     echo "<p> {$row[0]} </p>";
-                    }
+                $dato=$datos[0];
+
+                while ($row=mysqli_fetch_array($dato)){
+                    echo "<p>{$row[0]}</p>";
+                }
                 ?>
                 <br>
-                <a href="<?php echo URL?>"  target="_blank">Mas Fechas</a>
+<!--                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_civicos">Ver mas fechas</button>-->
             </div>
         </div>
     </div>
@@ -36,12 +37,13 @@
                 <br>
                 <?php
                 $dato=$datos[1];
+
                 while ($row=mysqli_fetch_array($dato)){
-                    echo "<p> {$row[0]} </p>";
+                    echo "<p>{$row[0]}</p>";
                 }
                 ?>
                 <br>
-                <a href="<?php echo URL?>"  target="_blank">Mas Fechas</a>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_culturales">Ver mas fechas</button>
             </div>
         </div>
     </div>
@@ -52,13 +54,14 @@
                 <p class="card-text"><?php echo $fechass;?></p>
                 <br>
                 <?php
-                $dato=$datos[0];
+                $dato=$datos[3];
+
                 while ($row=mysqli_fetch_array($dato)){
-                    echo "<p> {$row[0]} </p>";
+                    echo "<p>{$row[0]}</p>";
                 }
                 ?>
                 <br>
-                <a href="<?php echo URL?>"  target="_blank" >Mas Fechas</a>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_civicos">Ver mas fechas</button>
             </div>
         </div>
     </div>
@@ -70,12 +73,13 @@
                 <br>
                 <?php
                 $dato=$datos[2];
+
                 while ($row=mysqli_fetch_array($dato)){
-                    echo "<p> {$row[0]} </p>";
+                    echo "<p>{$row[0]}</p>";
                 }
                 ?>
                 <br>
-                <a href="<?php echo URL?>" target="_blank">Mas Fechas</a>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_deportivos">Ver mas fechas</button>
             </div>
         </div>
     </div>
@@ -121,6 +125,141 @@
 </div>
 
 
+<div class="modal fade" tabindex="-1" role="dialog" id="modal_civicos">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 align="center">Conteo Total Eventos Cívicos</h4>
+                <div class="divider"></div>
+                <code class=" language-markup"><!--********************************--></code>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Tipo de Eventos</th>
+                            <th scope="col">Conteo por Día</th>
+                            <th scope="col">Fecha de Visitas</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <?php
+                            $dato=$datos[4];
+
+                            while ($row=mysqli_fetch_array($dato)){
+                                echo "<tr>
+                        <td>{$row['descripcion']}</td>
+                        <td>{$row['cuenta']}</td>
+                        <td>{$row['fecha']}</td>
+                        </tr>";
+                            }
+                            ?>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal_culturales">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 align="center">Conteo Total Eventos Culturales</h4>
+                <div class="divider"></div>
+                <code class=" language-markup"><!--********************************--></code>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Tipo de Eventos</th>
+                            <th scope="col">Conteo por Día</th>
+                            <th scope="col">Fecha de Visitas</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <?php
+                            $dato=$datos[5];
+
+                            while ($row=mysqli_fetch_array($dato)){
+                                echo "<tr>
+                        <td>{$row['descripcion']}</td>
+                        <td>{$row['cuenta']}</td>
+                        <td>{$row['fecha']}</td>
+                        </tr>";
+                            }
+                            ?>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal_deportivos">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 align="center">Conteo Total Eventos Deportivos</h4>
+                <div class="divider"></div>
+                <code class=" language-markup"><!--********************************--></code>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Tipo de Eventos</th>
+                            <th scope="col">Conteo por Día</th>
+                            <th scope="col">Fecha de Visitas</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <?php
+                            $dato=$datos[6];
+
+                            while ($row=mysqli_fetch_array($dato)){
+                                echo "<tr>
+                        <td>{$row['descripcion']}</td>
+                        <td>{$row['cuenta']}</td>
+                        <td>{$row['fecha']}</td>
+                        </tr>";
+                            }
+                            ?>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
     $(document).ready(function(){

@@ -14,15 +14,14 @@ class Empleado_bienvenidoController
     }
     public function index()
     {
-        $datos0=$this->persona->cont_civ();
-        $datos1=$this->persona->cont_cult();
-        $datos2=$this->persona->cont_dep();
-        $datos3=$this->persona->conteo_total();
+        $datos[0]=$this->persona->conteo_total();
+        $datos[2]=$this->persona->cont_dep();
+        $datos[1]=$this->persona->cont_cult();
+        $datos[3]=$this->persona->cont_civ();
+        $datos[4]=$this->persona->cont_tot_civ();
+        $datos[5]=$this->persona->cont_tot_cult();
+        $datos[6]=$this->persona->cont_tot_dep();
 
-        $datos[0]=$datos0;
-        $datos[1]=$datos1;
-        $datos[2]=$datos2;
-        $datos[3]=$datos3;
 
         return $datos;
     }
